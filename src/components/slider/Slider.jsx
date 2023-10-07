@@ -1,5 +1,7 @@
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@mui/icons-material"
+import { useState } from "react"
 import styled from "styled-components"
+import { sliderItems } from "../../data"
 //import "./slider.css"
 
 const Container = styled.div`
@@ -29,11 +31,14 @@ const Arrow = styled.div`
     margin: auto;
     cursor: pointer;
     opacity: 0.5;
+    z-index: 2;
 `
 
 const Wrapper = styled.div`
     height: 100%;
     display: flex;
+    transition: all 1.5s ease;
+    transform: translateX(${props => props.slideIndex * -100}vw);
 `
 
 const Slide = styled.div`
@@ -78,46 +83,36 @@ const Button = styled.button`
 `
 
 export default function Slider() {
+const [slideIndex, setSlideIndex] = useState(0);
+  const handleClick = (direction) => {
+
+    if (direction === "left") {
+        setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2);
+    }else{
+        setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
+    }
+  };
+     
   return (
     <Container>
-        <Arrow direction="left">
+        <Arrow direction="left" onClick={()=>handleClick("left")}>
             <ArrowLeftOutlined/>
         </Arrow>
-        <Wrapper>
-            <Slide bg="f5fafd">
+        <Wrapper slideIndex={ slideIndex }>
+          {sliderItems.map((item)=>(
+            <Slide key={item.id} bg={item.bg}>
                 <ImgContainer>
-                    <Image src="/assets/comPerson4.png" />
+                    <Image src={ item.img } />
                 </ImgContainer>
                 <InfoContainer>
-                    <Title>SUMMER RUSH!</Title>
-                    <Desc>DONT DULL! GET A FLAT 25% OFF ON NEW ARRIVALS</Desc>
+                    <Title>{item.title}</Title>
+                    <Desc>{item.desc}</Desc>
                     <Button>SHOP NOW</Button>
                 </InfoContainer>
-            </Slide>
-
-            <Slide bg="fcf1ed">
-                <ImgContainer>
-                    <Image src="/assets/comPerson3.png" />
-                </ImgContainer>
-                <InfoContainer>
-                    <Title>WINTER RUSH!</Title>
-                    <Desc>DONT DULL! GET A FLAT 25% OFF ON NEW ARRIVALS</Desc>
-                    <Button>SHOP NOW</Button>
-                </InfoContainer>
-            </Slide>
-
-            <Slide bg="fbf0f4">
-                <ImgContainer>
-                    <Image src="/assets/comPerson4.png" />
-                </ImgContainer>
-                <InfoContainer>
-                    <Title>POPULAR RUSH!</Title>
-                    <Desc>DONT DULL! GET A FLAT 25% OFF ON NEW ARRIVALS</Desc>
-                    <Button>SHOP NOW</Button>
-                </InfoContainer>
-            </Slide>
+            </Slide>))
+          }  
         </Wrapper>
-        <Arrow direction="right">
+        <Arrow direction="right" onClick={()=>handleClick("right")}>
             <ArrowRightOutlined/>
         </Arrow>
     </Container>
