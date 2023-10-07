@@ -5,7 +5,10 @@ export default function Navbar() {
   return (
     <div className="navbarContainer">
       <div className="navbarWrapper">
-        <div className="navLeft">Left</div>
+        <div className="navLeft">
+          <span className="navLanguage">EN</span>
+          
+        </div>
         <div className="navCenter">Center</div>
         <div className="navRight">Right</div>
       </div>
