@@ -100,17 +100,54 @@ const PriceDetail = styled.div`
 const ProductAmountContainer = styled.div`
     display:flex;
     align-items: center;
+    margin-bottom: 20px;
 `
 const ProductAmount = styled.div`
-    flex:1;
+    font-size: 24px;
+    margin: 5px;
 `
 const ProductPrice = styled.div`
-    flex:1;
+    font-size: 30px;
+    font-weight: 200;
 `
 
+const Hr = styled.hr`
+    background-color:#eee;
+    border: none;
+    height: 1px;
+`
 
 const Summary = styled.div`
     flex:1;
+    border: 0.5px solid lightgray;
+    border-radius: 10px;
+    padding: 20px;
+    height: 50vh;
+`
+
+const SummaryTitle = styled.h1`
+    font-weight: 200;
+`
+const SummaryItem = styled.div`
+    margin: 30px 0px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: ${props=>props.type === "total" && "500"};
+    font-size: ${props=>props.type === "total" && "24px"};
+`
+const SummaryItemText = styled.span`
+    ;
+`
+const SummaryItemPrice = styled.span`
+    ;
+`
+
+const Button = styled.button`
+    width: 100%;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    font-weight: 600;
 `
 
 export default function Cart() {
@@ -149,8 +186,50 @@ export default function Cart() {
                             <ProductPrice>$ 45</ProductPrice>
                         </PriceDetail>
                     </Product>
+                    <Hr/>
+                    <Product>
+                        <ProductDetail>
+                            <Image src="/assets/comPP.png"/>
+                            <Details>
+                                <ProductName><b>Product:</b> ALFINI T-SHIRT</ProductName>
+                                <ProductId><b>ID:</b>436784302074</ProductId>
+                                <ProductColor color="gray"/>
+                                <ProductSize><b>Size:</b>M</ProductSize>
+                            </Details>
+                        </ProductDetail>
+                        <PriceDetail>
+                            <ProductAmountContainer>
+                                <Add/>
+                                <ProductAmount>2</ProductAmount>
+                                <Remove/>
+                            </ProductAmountContainer>
+                            <ProductPrice>$ 20</ProductPrice>
+                        </PriceDetail>
+                    </Product>
                 </Info>
-                <Summary>summary</Summary>
+                <Summary>
+                    <SummaryTitle>ORDER SUMMARY</SummaryTitle>
+                    <SummaryItem>
+                        <SummaryItemText>Subtotal</SummaryItemText>
+                        <SummaryItemPrice>$ 65</SummaryItemPrice>
+                    </SummaryItem>
+
+                    <SummaryItem>
+                        <SummaryItemText>Estimated Shipping</SummaryItemText>
+                        <SummaryItemPrice>$ 600</SummaryItemPrice>
+                    </SummaryItem>
+
+                    <SummaryItem>
+                        <SummaryItemText>Shipping Discount</SummaryItemText>
+                        <SummaryItemPrice>$ -5.90</SummaryItemPrice>
+                    </SummaryItem>
+
+                    <SummaryItem type="total">
+                        <SummaryItemText >Total</SummaryItemText>
+                        <SummaryItemPrice>$ 65</SummaryItemPrice>
+                    </SummaryItem>
+                    <Button>CHECKOUT</Button>
+                </Summary>
             </Bottom>
         </Wrapper>
         <Footer/>
