@@ -1,3 +1,4 @@
+import { Add, Remove } from "@mui/icons-material"
 import styled from "styled-components"
 import Anouncement from "../../components/anouncement/Anouncement"
 import Footer from "../../components/footer/Footer"
@@ -51,6 +52,63 @@ const Bottom = styled.div`
 const Info = styled.div`
     flex:3;
 `
+
+const Product = styled.div`
+    display: flex;
+    justify-content: space-between;
+`
+
+const ProductDetail = styled.div`
+    flex: 2;
+    display:flex;
+`
+
+const Image = styled.img`
+    width: 200px;
+`
+
+const Details = styled.div`
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+`
+const ProductName = styled.span`
+    
+`
+const ProductId = styled.span`
+    
+`
+const ProductColor = styled.div`
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: ${ props=>props.color};
+`
+const ProductSize = styled.span`
+    
+`
+
+const PriceDetail = styled.div`
+    flex:1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+`
+
+const ProductAmountContainer = styled.div`
+    display:flex;
+    align-items: center;
+`
+const ProductAmount = styled.div`
+    flex:1;
+`
+const ProductPrice = styled.div`
+    flex:1;
+`
+
+
 const Summary = styled.div`
     flex:1;
 `
@@ -71,7 +129,27 @@ export default function Cart() {
                 <TopButton type="filled">CHECKOUT NOW</TopButton>
             </Top>
             <Bottom>
-                <Info>info</Info>
+                <Info>
+                    <Product>
+                        <ProductDetail>
+                            <Image src="/assets/comPP1.png"/>
+                            <Details>
+                                <ProductName><b>Product:</b> DINO THUNDER SHOES</ProductName>
+                                <ProductId><b>ID:</b>885477489849</ProductId>
+                                <ProductColor color="black"/>
+                                <ProductSize><b>Size:</b>37.5</ProductSize>
+                            </Details>
+                        </ProductDetail>
+                        <PriceDetail>
+                            <ProductAmountContainer>
+                                <Add/>
+                                <ProductAmount>2</ProductAmount>
+                                <Remove/>
+                            </ProductAmountContainer>
+                            <ProductPrice>$ 45</ProductPrice>
+                        </PriceDetail>
+                    </Product>
+                </Info>
                 <Summary>summary</Summary>
             </Bottom>
         </Wrapper>
