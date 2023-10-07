@@ -67,11 +67,7 @@ export const popularProducts = [
     },
     {
         id: 7,
-        img: "/assets/pp1.png"
-    },
-    {
-        id: 7,
-        img: "/assets/pp1.png"
+        img: "/assets/pp7.png"
     },
     {
         id: 8,
