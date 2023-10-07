@@ -30,12 +30,12 @@ export const categories = [
     },
     {
         id: 2,
-        img: "/assets/shirt1.png",
+        img: "/assets/lounge1.png",
         title: "LOUNGEWEAR LOVE"
     },
     {
         id: 3,
-        img: "/assets/shirt1.png",
+        img: "/assets/lightJacket1.png",
         title: "LIGHT JACKETS"
     },
 ]
