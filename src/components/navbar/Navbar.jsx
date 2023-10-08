@@ -1,33 +1,87 @@
-//import styled from "styled-components"
-import "./navbar.css"
+import styled from "styled-components"
+//import "./navbar.css"
 import { Search, ShoppingCartOutlined } from "@mui/icons-material"
 import { Badge } from "@mui/material"
 
 
+const Container = styled.div`
+  height: 60px;
+`
+
+const Wrapper = styled.div`
+  padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`
+
+const Left = styled.div`
+    flex: 1;
+    display: flex;
+    align-items: center;
+`
+const Language = styled.span`
+    font-size: 14px;
+    cursor: pointer;
+`
+const SearchContainer = styled.div`
+    border: 0.5px solid lightgray;
+    display: flex;
+    align-items: center;
+    margin-left: 25px;
+    
+`
+const Input = styled.input`
+    border: none;
+    background-color: #fff;
+`
+
+const Center = styled.div`
+  flex: 1;
+  text-align: center;
+`
+const Logo = styled.h1`
+  font-weight: bold;
+`
+
+const Right = styled.div`
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+`
+
+const MenuItem = styled.div`
+  font-size: 14px;
+    cursor: pointer;
+    margin: 25px;
+`
+
+
 export default function Navbar() {
   return (
-    <div className="navbarContainer">
-      <div className="navbarWrapper">
-        <div className="navLeft">
-          <span className="navLanguage">EN</span>
-            <div className="navSearch">
-              <input type="text" />
+    <Container>
+      <Wrapper>
+        <Left>
+          <Language>EN</Language>
+            <SearchContainer>
+              <Input placeholder="Search"/>
               <Search style={{ color:"gray", fontSize:16}}/>
-            </div>
-        </div>
-        <div className="navCenter">
-          <h1 className="navLogo">SPYTHON.</h1>
-        </div>
-        <div className="navRight">
-          <div className="navMenuItem">REGISTER</div>
-          <div className="navMenuItem">SIGN IN</div>
-          <div className="navMenuItem">
+            </SearchContainer>
+        </Left>
+        <Center>
+          <Logo>SPYTHON.</Logo>
+        </Center>
+        <Right>
+          <MenuItem>REGISTER</MenuItem>
+          <MenuItem>SIGN IN</MenuItem>
+          <MenuItem>
             <Badge badgeContent={4} color="primary" />
             <ShoppingCartOutlined />
-        </div>
-        </div>
+        </MenuItem>
+        </Right>
         
-      </div>
-    </div>
+      </Wrapper>
+    </Container>
   )
 }
