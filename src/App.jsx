@@ -8,7 +8,7 @@ import Register from "./pages/register/Register"
 function App() {
   return (
     <div>
-      <Register />
+      <ProductList />
     </div>
   )
 }
