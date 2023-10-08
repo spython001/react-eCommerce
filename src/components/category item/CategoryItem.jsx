@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import styled from "styled-components"
+import { mobile } from "../../responsive"
 import "./category.css"
 
 const Container = styled.div`
@@ -13,6 +14,7 @@ const Image = styled.img`
     width: 100%;
     height: 100%;
     object-fit: cover;
+    ${mobile({height:"30vh"})};
 `
 
 const Info = styled.div`
